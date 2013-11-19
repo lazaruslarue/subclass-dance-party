@@ -35,6 +35,7 @@ var Dancer = function(top, left, timeBetweenSteps) {
   this.$node = $('<span class="dancer"></span>');
   this.step(timeBetweenSteps);
   this.setPosition(top, left);
+  this.animationTime = 4000;
 };
 
 Dancer.prototype.setPosition = function(top, left) {
@@ -53,4 +54,14 @@ Dancer.prototype.step = function() {
   setTimeout(function() {
     that.step();
   }, that.timeBetweenSteps);
+};
+
+Dancer.prototype.lineUp = function() {
+  console.log('linuep');
+  //this.$node.css('left', '30px');
+//   this.lineUp();
+  this.$node.animate({
+    'left': '30px'
+  }, this.animationTime);
+
 };

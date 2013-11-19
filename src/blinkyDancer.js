@@ -22,6 +22,7 @@
 var BlinkyDancer = function( top, left, timeBetweenSteps) {
   this.timeBetweenSteps = timeBetweenSteps;
   Dancer.apply(this, arguments);
+  this.animationTime = 1;
 };
 
 BlinkyDancer.prototype = new Dancer();
@@ -33,3 +34,7 @@ BlinkyDancer.prototype.step = function() {
   this.$node.toggle();
 };
 
+// BlinkyDancer.prototype.lineUp = function() {
+//   // this.$node.css('left', '30px');
+
+// };

@@ -49,10 +49,8 @@ Dancer.prototype.setPosition = function(top, left) {
 };
 
 Dancer.prototype.step = function() {
-    console.log(this, "inside dancer step");
-    var that = this;
-    setTimeout(function() {
-      console.log('inside weird timeout');
-      that.step();
-    }, that.timeBetweenSteps);
-  };
+  var that = this;
+  setTimeout(function() {
+    that.step();
+  }, that.timeBetweenSteps);
+};

@@ -20,19 +20,16 @@
 
 
 var BlinkyDancer = function( top, left, timeBetweenSteps) {
-  // this.timeBetweenSteps = timeBetweenSteps;
-  // var that = this;
-  this.step = function() {
-    this.$node.toggle();
-  };
+  this.timeBetweenSteps = timeBetweenSteps;
+  Dancer.apply(this, arguments);
 };
 
 BlinkyDancer.prototype = new Dancer();
 
-BlinkyDancer.prototype.step = function(timeBetweenSteps) {
-  // setTimeout(this.step, timeBetweenSteps);
-  // this.$node.toggle();
-  Dancer.prototype.step.call(this, timeBetweenSteps);
+BlinkyDancer.prototype.constructor = BlinkyDancer;
+
+BlinkyDancer.prototype.step = function() {
+  Dancer.prototype.step.call(this);
+  console.log("inside blinkydancer");
+  this.$node.toggle();
 };
-
-

@@ -34,11 +34,7 @@
 var Dancer = function(top, left, timeBetweenSteps) {
   this.$node = $('<span class="dancer"></span>');
   this.step(timeBetweenSteps);
-  this.setPosition(top, left); 
-};
-
-Dancer.prototype.step = function(timeBetweenSteps) {
-  setTimeout(this.step, timeBetweenSteps);
+  this.setPosition(top, left);
 };
 
 Dancer.prototype.setPosition = function(top, left) {
@@ -51,3 +47,12 @@ Dancer.prototype.setPosition = function(top, left) {
   };
   this.$node.css(styleSettings);
 };
+
+Dancer.prototype.step = function() {
+    console.log(this, "inside dancer step");
+    var that = this;
+    setTimeout(function() {
+      console.log('inside weird timeout');
+      that.step();
+    }, that.timeBetweenSteps);
+  };
